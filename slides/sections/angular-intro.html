@@ -1,0 +1,53 @@
+<slide>
+    <h2>AngularJS</h2>
+
+    <img src="/slides/images/angularjs.png">
+
+    <a href="https://angularjs.org">https://angularjs.org</a>
+</slide>
+
+<slide>
+    <h2>What is AngularJS?</h2>
+
+    <p>It is an MVW framework for the browser</p>
+    <p>It provides us more power in the views by so-called <b>directives</b></p>
+    <p>It is built on the two-way data binding concept with <em>view models</em></p>
+    <p>It is very testable (if you use it as intended)</p>
+</slide>
+
+<slide state="angular_init">
+    <h2>Installation</h2>
+
+    <pre hl="bash" class="center">
+        <code>
+bower install --save angular
+        </code>
+    </pre>
+</slide>
+
+<slide state="angular_init">
+    <h2>Two-way data binding</h2>
+
+    <div fragment><img src="/slides/images/One_Way_Data_Binding.png"/></div>
+    <div fragment><img src="/slides/images/Two_Way_Data_Binding.png"/></div>
+</slide>
+
+<slide state="angular_init" state="angular_two_way_db" state="angular_two_way_db">
+    <h2>Two-way data binding</h2>
+
+    <p>example:</p>
+
+    <pre hl="html">
+        <code>
+&lt;body ng-app&gt;
+
+    &lt;h2 ng-bind="myViewModel.heading"&gt;&lt;/h2&gt;
+
+    &lt;input type="text" ng-model="myViewModel.heading"/&gt;
+
+    &lt;button type="button" ng-click="myViewModel.heading = 'Demo'"&gt;Demo&lt;/button&gt;
+
+&lt;/body&gt;
+        </code>
+    </pre>
+</slide>

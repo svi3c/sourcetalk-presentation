@@ -1,0 +1,81 @@
+<slide>
+    <h2>Build-Management for static files with Grunt</h2>
+
+    <img src="/slides/images/grunt.png">
+
+    <div>
+        <a href="http://gruntjs.com/">http://gruntjs.com/</a>
+    </div>
+</slide>
+<slide>
+    <h2>What is Grunt</h2>
+
+    <p fragment>Grunt is a "JavaScript Task Runner"</p>
+
+    <p fragment>It is based on NodeJS</p>
+
+    <div fragment>
+        <p>A lot of plugins are available in the npm repository:</p>
+
+        <ul>
+            <li>processing of CoffeeScript files</li>
+            <li>processing of Less files</li>
+            <li>processing of Sass files</li>
+            <li>copying and concatenation of files</li>
+            <li>minification of JavaScript files</li>
+            <li>...</li>
+        </ul>
+    </div>
+</slide>
+<slide state="grunt_init">
+    <h2>Setup</h2>
+
+    <pre class="center padding" fragment>
+        <code hl="bash">
+npm install -g grunt-cli
+        </code>
+    </pre>
+
+    <pre class="center" fragment>
+        <code hl="bash">
+npm init
+        </code>
+    </pre>
+
+    <pre class="center" fragment>
+        <code hl="bash">
+npm install --save-dev grunt
+        </code>
+    </pre>
+</slide>
+<slide state="grunt_coffee">
+    <h2>Example: CoffeeScript compilation</h2>
+
+    <pre class="center padding" fragment>
+        <code hl="bash">
+npm install --save-dev grunt-contrib-coffee
+        </code>
+    </pre>
+
+    <div fragment>
+        <p>Gruntfile:</p>
+        <pre>
+            <code hl="coffeescript">
+module.exports = (grunt) ->
+
+  grunt.initConfig
+    coffee:
+      dev:
+        files:
+          "dist/main.js": "src/**/*.coffee"
+
+  grunt.loadNpmTasks "grunt-contrib-coffee"
+            </code>
+        </pre>
+    </div>
+    <pre class="center" fragment>
+        <code hl="bash">
+grunt coffee
+        </code>
+    </pre>
+</slide>

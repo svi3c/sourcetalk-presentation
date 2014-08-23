@@ -1,0 +1,43 @@
+<slide>
+    <h2>Routing</h2>
+
+    <p fragment>Core component of SPAs</p>
+    <p fragment>Only one HTML document is delivered, the rest is rendered by JavaScript on client side with the help of templates and data</p>
+</slide>
+
+<slide state="angular_routing">
+    <h2>Routing in AngularJS</h2>
+
+    <div fragment>
+        <p>HTML:</p>
+        <pre hl="html">
+            <code>
+&lt;a href="/page1"&gt;page 1&lt;/a&gt;
+&lt;a href="/page2"&gt;page 2&lt;/a&gt;
+
+&lt;ng-view&gt;&lt;/ng-view&gt;
+            </code>
+        </pre>
+    </div>
+    <div fragment>
+        <p>Script:</p>
+        <pre hl="coffeescript">
+            <code>
+app = angular.module "routing", ["ngRoute"]
+
+app.config [
+  "$locationProvider",
+  "$routeProvider",
+  ($locationProvider, $routeProvider) ->
+    $locationProvider.html5Mode true
+    $routeProvider
+      .when "/page1",
+        templateUrl: "/templates/page1.html"
+      .when "/page2",
+        templateUrl: "/templates/page2.html"
+      .otherwise "/page1"
+]
+            </code>
+        </pre>
+    </div>
+</slide>

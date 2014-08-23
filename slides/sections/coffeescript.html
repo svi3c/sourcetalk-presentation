@@ -1,0 +1,275 @@
+<slide>
+    <h2>CoffeeScript - An alternative to JavaScript</h2>
+
+    <img src="/slides/images/coffeescript.jpg" alt="">
+
+    <div>
+        <a href="http://coffeescript.org/">http://coffeescript.org/</a>
+    </div>
+</slide>
+<slide>
+    <h2>Installation</h2>
+
+    <pre class="center">
+        <code hl="bash">
+npm install -g coffee-script
+        </code>
+    </pre>
+</slide>
+<slide>
+    <h2>Why should we pick another language?</h2>
+
+    <p fragment>Similar question like "Why should we use Groovy, we already have Java?"</p>
+    <p fragment>More syntax sugar &#8594; More concise code</p>
+</slide>
+<slide state="iifes">
+    <h2>Advantages</h2>
+
+    <pre>
+        <code hl="coffeescript">
+a = "b"
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+(function() {
+    var a;
+
+    a = 'b';
+
+}).call(this);
+        </code>
+    </pre>
+    <p fragment>Automatically uses IIFEs &#8594; No accident assignments to global scope</p>
+</slide>
+<slide state="indentation">
+    <h2>Indentation-based blocks</h2>
+
+    <pre>
+        <code hl="coffeescript">
+a = "b"
+if true
+    a = "c"
+console.log a
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+var a;
+
+a = "b";
+
+if (true) {
+    a = "c";
+}
+
+console.log(a);
+        </code>
+    </pre>
+    <p fragment>You have to get used to it, if you don't know python</p>
+    <p fragment>In my opionion it increases readability</p>
+</slide>
+<slide state="functions1">
+    <h2>Functions</h2>
+
+    <pre>
+        <code hl="coffeescript">
+foo = ->
+    console.log "foo"
+
+foo()
+
+console.log ["r", "z"].map (x) ->
+    "ba" + x
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+var foo;
+
+foo = function() {
+    return console.log("foo");
+};
+
+foo();
+
+console.log(["r", "z"].map(function(x) {
+    return "ba" + x;
+}));
+        </code>
+    </pre>
+    <p fragment>Inline-Functions are more concise</p>
+    <p fragment>We have implicit returns</p>
+</slide>
+<slide state="functions2">
+    <h2>Functions</h2>
+
+    <pre>
+        <code hl="coffeescript">
+sumOdd = (arr) ->
+    arr
+        .filter (x) -> x % 2 == 0
+        .reduce (acc, x) -> acc + x
+
+console.log sumOdd [4, 2, 6, 9, 12, 1, 42, 5]
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+var sumOdd;
+
+sumOdd = function(arr) {
+    return arr.filter(function(x) {
+        return x % 2 === 0;
+    }).reduce(function(acc, x) {
+        return acc + x;
+    });
+};
+
+console.log(sumOdd([4, 2, 6, 9, 12, 1, 42, 5]));
+        </code>
+    </pre>
+    <p fragment>Practicing functional style is more enjoyable</p>
+</slide>
+
+<slide state="interpol_ranges">
+    <h2>String interpolation and ranges</h2>
+
+    <pre>
+        <code hl="coffeescript">
+x = "foo"
+
+# string interpolation
+console.log "x is '#{x}'"
+console.log "big x is '#{x.toUpperCase()}'"
+
+# ranges
+console.log [1..10]
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+var x;
+
+x = "foo";
+
+console.log("x is '" + x + "'");
+console.log("big x is '" + (x.toUpperCase()) + "'");
+
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        </code>
+    </pre>
+</slide>
+
+<slide state="for_expressions">
+    <h2>for-expressions</h2>
+
+    <pre>
+        <code hl="coffeescript">
+console.log x * x for x in [1..10]
+
+console.log (x * x for x in [1..10])
+        </code>
+    </pre>
+
+    <pre fragment>
+        <code hl="javascript">
+var x, _i;
+
+for (x = _i = 1; _i <= 10; x = ++_i) {
+    console.log(x * x);
+}
+
+console.log((function() {
+    var _j, _results;
+    _results = [];
+    for (x = _j = 1; _j <= 10; x = ++_j) {
+        _results.push(x * x);
+    }
+    return _results;
+})());
+        </code>
+    </pre>
+    <p fragment>Expansions are concise</p>
+</slide>
+
+<slide state="classes">
+    <h2>Classes and inheritance</h2>
+
+    <pre>
+        <code hl="coffeescript">
+class Person
+    constructor: (@name) ->
+    tell: -> console.log "Hello, I'm #{@name}."
+
+class User extends Person
+    constructor: (@name, @email) ->
+        @password = "verySecretPassword"
+    login: (password) ->
+        if @password == password
+            console.log "I've just logged in with #{@email}."
+        else
+            console.log "I've tried to login with #{@email} and a wrong password."
+
+user = new User "John Doe", "john@doe.net"
+user.tell()
+user.login("wrongPassword")
+user.login("verySecretPassword")
+        </code>
+    </pre>
+</slide>
+<slide>
+    <h2>Classes</h2>
+
+    <pre>
+        <code hl="javascript">
+var Person, User, user,
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+Person = (function() {
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.tell = function() {
+        return console.log("Hello, I'm " + this.name + ".");
+    };
+
+    return Person;
+
+})();
+
+User = (function(_super) {
+    __extends(User, _super);
+
+    function User(name, email) {
+        this.name = name;
+        this.email = email;
+        this.password = "verySecretPassword";
+    }
+
+    User.prototype.login = function(password) {
+        if (this.password === password) {
+            return console.log("I've just logged in with " + this.email + ".");
+        } else {
+            return console.log("I've tried to login with " + this.email + " and a wrong password.");
+        }
+    };
+
+    return User;
+
+})(Person);
+
+user = new User("John Doe", "john@doe.net");
+user.tell();
+user.login("wrongPassword");
+user.login("verySecretPassword");
+        </code>
+    </pre>
+</slide>
