@@ -1,18 +1,18 @@
-1.	routing							-> routing									S
-2. 	addressesService				-> Services + Resources						
-3. 	repeater						-> Direktiven, ng-repeat
-4. 	reload							-> promises									S
-	(reload promises)
-5. 	filter							-> ng-model, Filter-Anwendung: ng-filter
+1.	routing                       -> routing
+2. 	addressesService              -> Services + Resources
+3. 	repeater                      -> Direktiven, ng-repeat
+4. 	reload                        -> promises
+5. 	filter                        -> ng-model, Filter-Anwendung: ng-filter
 6. 	editView aufrufen
 7. 	cancel, save, delete
-8. 	validate						-> Form validation
-9.  spalten als Array, capitalize	-> Filter-Implementation
-10.	spaltenweise sortieren			-> ng-orderBy
+8. 	validate                      -> Form validation
+9.  spalten als Array, capitalize -> Filter-Implementation
+10.	spaltenweise sortieren        -> ng-orderBy
 11.	select all
 12.	delete selected
 
--addressesCtrl.spec 
--editCtrl.spec
--tests für routes
--splitting + slides abgleichen
+- ng-annotate
+- addressesCtrl.spec
+- editCtrl.spec
+- tests für routes
+- splitting + slides abgleichen
