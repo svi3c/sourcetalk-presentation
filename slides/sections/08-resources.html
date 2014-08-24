@@ -22,9 +22,8 @@
 <slide>
     <h2>Customizing the resource</h2>
 
-    <p fragment>To get a more REST conform behavior of the resource objects, we can create our own service on top of $resource.</p>
     <div fragment class="padding">
-        <p>So far we have the following methods:</p>
+        <p>Angular by default provides the following methods:</p>
         <table>
             <thead>
                 <tr>
@@ -50,6 +49,7 @@
             </tbody>
         </table>
     </div>
+    <p fragment class="padding">To get a more <a href="http://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services" target="_blank">REST conform</a> behavior of the resource objects, we can create our own service on top of $resource.</p>
     <div fragment class="padding">
         <p>What we want:</p>
         <table>
@@ -74,10 +74,12 @@
                     <td>/collection/id</td>
                     <td>$get()</td>
                     <td></td>
-                    <td>$update()</td>
+                    <td>
+                        <a href="https://docs.angularjs.org/api/ngResource/service/$resource#creating-a-custom-put-request" target="_blank">$update()</a></td>
                     <td>$delete()</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <p fragment>It would also be nice to send only clean data to the server &#8594; We need a schema</p>
 </slide>
