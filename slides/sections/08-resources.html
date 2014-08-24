@@ -1,4 +1,83 @@
 <slide>
     <h2>Resources</h2>
 
+    <div fragment>
+        <h4>Definition</h4>
+        <blockquote>
+            In common, a Web resource is anything that has an identity, typically the identity would be a Uniform Resource Identifier (URI).
+        </blockquote>
+        <a href="http://yihongs-research.blogspot.de/2008/05/web-resource.html">http://yihongs-research.blogspot.de/2008/05/web-resource.html</a>
+    </div>
+</slide>
+<slide>
+    <h2>Resources in Angular</h2>
+
+    <ul>
+        <li fragment>Angular resources are built on top of the <b><a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank">$http</a></b> service</li>
+        <li fragment>To use resources in Angular, we need to install the package <b>angular-resource</b> (retrievable via bower) and put the module <b>ngResource</b> into our module dependencies.</li>
+        <li fragment>Angular's <b><a href="https://docs.angularjs.org/api/ngResource/service/$resource" target="_blank">$resource</a></b> service is a factory function for so-called <b>resource objects</b>.</li>
+        <li fragment>A resource object is bound to a default URL and by default it gains access to the default HTTP methods GET, POST and DELETE.</li>
+    </ul>
+</slide>
+<slide>
+    <h2>Customizing the resource</h2>
+
+    <p fragment>To get a more REST conform behavior of the resource objects, we can create our own service on top of $resource.</p>
+    <div fragment class="padding">
+        <p>So far we have the following methods:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>GET</th>
+                    <th>POST</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/collection</td>
+                    <td>$query()</td>
+                    <td>$save()</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>/collection/id</td>
+                    <td>$get()</td>
+                    <td></td>
+                    <td>$delete()</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div fragment class="padding">
+        <p>What we want:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>GET</th>
+                    <th>POST</th>
+                    <th>PUT</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/collection</td>
+                    <td>$query()</td>
+                    <td>$create()</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>/collection/id</td>
+                    <td>$get()</td>
+                    <td></td>
+                    <td>$update()</td>
+                    <td>$delete()</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </slide>

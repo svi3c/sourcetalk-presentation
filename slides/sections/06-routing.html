@@ -2,7 +2,7 @@
     <h2>Routing</h2>
 
     <p fragment>Core component of SPAs</p>
-    <p fragment>Only one HTML document is delivered, the rest is rendered by JavaScript on client side with the help of templates and data</p>
+    <p fragment>Only one HTML document is delivered, the rest is rendered through JavaScript templates on client side with the help of templates and data</p>
 </slide>
 
 <slide>
@@ -21,22 +21,20 @@
     </div>
     <div fragment>
         <p>Script:</p>
-        <pre hl="coffeescript">
+        <pre hl="javascript">
             <code>
-app = angular.module "routing", ["ngRoute"]
-
-app.config [
-  "$locationProvider",
-  "$routeProvider",
-  ($locationProvider, $routeProvider) ->
-    $locationProvider.html5Mode true
-    $routeProvider
-      .when "/page1",
-        templateUrl: "/templates/page1.html"
-      .when "/page2",
-        templateUrl: "/templates/page2.html"
-      .otherwise "/page1"
-]
+angular.module("routing", ["ngRoute"])
+    .config(function ($locationProvider, $routeProvider) {
+        $locationProvider.html5Mode(true);
+        $routeProvider
+            .when("/page1", {
+                templateUrl: "/templates/page1.html"
+            })
+            .when("/page2", {
+                templateUrl: "/templates/page2.html"
+            })
+            .otherwise("/page1");
+    });
             </code>
         </pre>
     </div>
