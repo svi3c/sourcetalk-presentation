@@ -6,24 +6,7 @@
         "theme": "night"
 	},
 	"sync": {
-		"states": [
-            { "id": "iifes",                "commit": "a9b3f57", "label": "IIFEs" },
-            { "id": "indentation",          "commit": "4549c85", "label": "Indentation-Based blocks" },
-            { "id": "functions1",           "commit": "66f3dc4", "label": "Functions 1" },
-            { "id": "functions2",           "commit": "ddab34e", "label": "Functions 2" },
-            { "id": "interpol_ranges",      "commit": "cc94c6d", "label": "String interpolation and ranges" },
-            { "id": "for_expressions",      "commit": "20b9a23", "label": "For expressions" },
-            { "id": "classes",              "commit": "380914a", "label": "Classes and inheritance" },
-
-            { "id": "grunt_init",           "commit": "0e0ece2", "label": "Grunt init" },
-            { "id": "grunt_coffee",         "commit": "d5efac2", "label": "Grunt coffee" },
-
-            { "id": "bower_init",           "commit": "bb09204", "label": "Bower init" },
-
-            { "id": "angular_init",         "commit": "fe75cb8", "label": "Angular installation" },
-            { "id": "angular_two_way_db",   "commit": "baa827b", "label": "Two-way data binding" },
-            { "id": "angular_routing",      "commit": "c133444", "label": "Routing" }
-        ],
+		"states": [],
         "autoSync": {
             "enabled": false
         }
