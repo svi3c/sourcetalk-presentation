@@ -1,4 +1,45 @@
 <slide>
     <h2>Promises</h2>
 
+    Definition:
+    <blockquote>
+        A promise represents the eventual value returned from the single completion of an operation. A promise may be in one of the three states, unfulfilled, fulfilled, and failed. The promise may only move from unfulfilled to fulfilled, or unfulfilled to failed. Once a promise is fulfilled or failed, the promise's value MUST not be changed, [...]
+    </blockquote>
+    <p><a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">http://wiki.commonjs.org/wiki/Promises/A</a></p>
+</slide>
+<slide>
+    <h2>Promises in Angular</h2>
+
+    <p fragment class="padding">Promises are created automatically in many places:</p>
+    <ul fragment>
+        <li hl="javascript">$http[method]()</li>
+        <li hl="javascript">$resource("/url").query().$promise</li>
+        <li hl="javascript">$timeout()</li>
+    </ul>
+    <p fragment class="padding">Promises are handled automatically in some places:</p>
+    <ul fragment>
+        <li hl="javascript">$routeProvider.when("/url", {resolve: function() {}})</li>
+    </ul>
+    <p fragment>The promise implementation of Angular automatically calls a $rootScope.$apply().</p>
+</slide>
+<slide>
+    <h2>Creating Promises in Angular</h2>
+
+    <p fragment>The promise API is natively implemented in Angular, so We don't need to include another module. It is provided through the Service <b><a href="https://code.angularjs.org/1.2.23/docs/api/ng/service/$q">$q</a></b>.</p>
+    <p fragment>We create a promise by creating a deferred object:</p>
+    <pre hl="javascript" fragment>
+        <code>
+var dfd = $q.defer();
+
+doSomethingPotentiallyAsynchronous(function(result) {
+    if (...) {
+        dfd.resolve(result);
+    } else {
+        dfd.reject(new Error("something went wrong"));
+    }
+});
+
+return dfd.$promise;
+        </code>
+    </pre>
 </slide>
