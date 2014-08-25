@@ -6,10 +6,11 @@
 6. 	editView aufrufen
 7. 	cancel, save, delete
 8. 	validate                      -> Form validation
-9.  spalten als Array, capitalize -> Filter-Implementation
-10.	spaltenweise sortieren        -> ng-orderBy
-11.	select all
+9.  spalten als Array
+10. capitalize                    -> Filter-Implementation
+11.	spaltenweise sortieren        -> ng-orderBy
 12.	delete selected
+13.	select all
 
 - ng-annotate
 - addressesCtrl.spec
