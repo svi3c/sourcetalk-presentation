@@ -1,4 +1,27 @@
 <slide>
     <h2>Services</h2>
 
+    <div fragment>
+        <p>Create a service</p>
+        <pre hl="javascript">
+            <code>
+                angular.module('myModule', [])
+                    .factory('myService', function(){
+                        var service;
+                        return service
+                    });
+            </code>
+        </pre>
+    </div>
+    <div fragment>
+        <p>Inject a service</p>
+        <pre hl="javascript">
+            <code>
+                angular.module('myModule', [])
+                    .controller('myCtrl', function($scope, myService){
+                        $scope.status = myService.status();
+                    });
+            </code>
+        </pre>
+    </div>
 </slide>

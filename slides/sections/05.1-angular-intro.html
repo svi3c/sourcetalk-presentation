@@ -1,0 +1,52 @@
+<slide>
+    <h2>Define a AngularJS App</h2>
+
+    <div fragment>
+        <p>HTML:</p>
+        <pre hl="html">
+            <code>
+                &lt;!doctype html&gt;
+                &lt;html ng-app&gt;
+                    &lt;head&gt;
+                        &lt;title&gt;Angular Demo&lt;/title&gt;
+                        &lt;script src="angular.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;p&gt;{{1 + 1}}&lt;/p&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+</slide>
+<slide>
+    <div fragment>
+        <p>HTML:</p>
+        <pre hl="html">
+            <code>
+                &lt;!doctype html&gt;
+                &lt;html ng-app="myApp"&gt;
+                    &lt;head&gt;
+                        &lt;title&gt;Angular Demo&lt;/title&gt;
+                        &lt;script src="angular.js"&gt;&lt;/script&gt;
+                        &lt;script src="myApp.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body ng-controller="myCtrl"&gt;
+                        &lt;p&gt;{{hello}}&lt;/p&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+    <div fragment>
+        <p>Script:</p>
+        <pre hl="javascript">
+            <code>
+                angular.module('myApp', [])
+                    .controller('myCtrl', function($scope){
+                        $scope.hello = "Hello World";
+                    });
+            </code>
+        </pre>
+    </div>
+</slide>

@@ -1,4 +1,35 @@
 <slide>
-    <h2>Services</h2>
-
+    <h2>Filters</h2>
+    <div fragment>
+        <p>HTML:</p>
+        <pre hl="html">
+            <code fragment>
+                <ul>
+                    <li fragment>Selects a subset of items from array and returns it as a new array</li>
+                    <br>
+                    <li fragment>{{ expression | filter : option}}</li>
+                </ul>
+                <div fragment>
+                    &lt;input type="text" ng-model="myFilter"&gt;&lt;/input&gt;
+                    &lt;div ng-repeat="item in items | filter:myFilter"&gt;&lt;div&gt;
+                </div>
+            </code>
+        </pre>
+    </div>
+</slide>
+<slide>
+    <h2>Built-in Filters</h2>
+    <div fragment>
+        <pre hl="javascript">
+            <code>
+                <ul>
+                    <li>{{ date_expression | date : format}}</li>
+                    <br>
+                    <li>{{ number_expression | currency : symbol}}</li>
+                    <br>
+                    <li>{{ text_expression | uppercase | lowercase}}</li>
+                </ul>
+            </code>
+        </pre>
+    </div>
 </slide>

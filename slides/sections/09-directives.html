@@ -1,4 +1,136 @@
 <slide>
     <h2>Directives</h2>
+    <div fragment>
+        <p>Directive types</p>
+        <ul>
+            <li fragment>Element        => E &lt;ng-view&gt;&lt;/ng-view&gt;</li>
+            <li fragment>Attribute      => A &lt;p ng-hide="true"&gt;&lt;/p&gt;</li>
+            <li fragment>Class          => C &lt;p class="my-class"&gt;&lt;/p&gt;</li>
+            <li fragment>Comment        => M /* my-directive trigger */</li>
+        </ul>
+    </div>
+</slide>
+<slide>
+    <div fragment>
+        <p>AngularJS built-in Directives</p>
+        <ul>
+            <li fragment>keyword ng-</li>
+        </ul>
+    </div>
+    <div fragment>
+        <pre hl="html">
+            <code>
+                &lt;!doctype html&gt;
+                &lt;html ng-app&gt;
+                    &lt;head&gt;
+                        &lt;title&gt;Angular Demo&lt;/title&gt;
+                        &lt;script src="angular.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;p ng-hide="true"&gt;&lt;/p&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+    </div>
+</slide>
+<slide>
+    <div fragment>
+        <p>Drectives used in DemoApp</p>
+        <ul>
+            <li>ng-app</li>
+            <li>ng-view</li>
+            <li>ng-model</li>
+            <li>ng-click</li>
+            <li>ng-repeat</li>
+            <li>ng-class</li>
+            <li>ng-href</li>
+            <li>ng-class-even</li>
+            <li>ng-class-odd</li>
+            <li>ng-hide</li>
+            <li>&lt;ng-view&gt;&lt;/ng-view&gt;</li>
+        </ul>
+    </div>
+</slide>
+<slide>
+    <div fragment>
+        <p>Custom Drectives</p>
+        <div fragment>
+            <p>JavaScript:</p>
+            <pre hl="javascript">
+                <code>
+                    angular.module('myApp', [])
+                        .controller('myCtrl', function($scope) {
+                            $scope.bunny = {
+                                name: 'Bugs'
+                            };
+                        });
 
+                    angular.module('myApp', [])
+                        .directive('bunny', function() {
+                            return {
+                                restrict: 'A',
+                                template: 'Name: {{bunny.name}}'
+                            };
+                        });
+                </code>
+            </pre>
+            <p>HTML:</p>
+            <pre hl="html">
+                <code>
+                    &lt;!doctype html&gt;
+                    &lt;html ng-app="myApp"&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;Angular Demo&lt;/title&gt;
+                            &lt;script src="angular.js"&gt;&lt;/script&gt;
+                            &lt;script src="myApp.js"&gt;&lt;/script&gt;
+                            &lt;script src="myCtrl.js"&gt;&lt;/script&gt;
+                            &lt;script src="bunny.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body ng-controller="myCtrl"&gt;
+                            &lt;p bunny&gt;&lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+</slide>
+<slide>
+    <div fragment>
+        <p>Better Directives</p>
+        <div fragment>
+            <p>JavaScript:</p>
+            <pre hl="javascript">
+                <code>
+                    angular.module('myApp', [])
+                        .directive('bunny', function() {
+                            return {
+                                restrict: 'A',
+                                link: function(scope, element, attributes){
+                                    element.html("Name: " + attributes.bunny);
+                                }
+                            };
+                        });
+                </code>
+            </pre>
+            <p>HTML:</p>
+            <pre hl="html">
+                <code>
+                    &lt;!doctype html&gt;
+                    &lt;html ng-app="myApp"&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;Angular Demo&lt;/title&gt;
+                            &lt;script src="angular.js"&gt;&lt;/script&gt;
+                            &lt;script src="myApp.js"&gt;&lt;/script&gt;
+                            &lt;script src="myCtrl.js"&gt;&lt;/script&gt;
+                            &lt;script src="bunny.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body ng-controller="myCtrl"&gt;
+                            &lt;p bunny="{{bunny.name}}"&gt;&lt;/p&gt;
+                        &lt;/body&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
 </slide>
