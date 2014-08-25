@@ -27,7 +27,7 @@
                         &lt;script src="angular.js"&gt;&lt;/script&gt;
                     &lt;/head&gt;
                     &lt;body&gt;
-                        &lt;p ng-hide="true"&gt;&lt;/p&gt;
+                        &lt;p ng-repeat="item in items"&gt;{{item.name}}}&lt;/p&gt;
                     &lt;/body&gt;
                 &lt;/html&gt;
             </code>
@@ -98,7 +98,7 @@
 </slide>
 <slide>
     <div fragment>
-        <p>Better Directives</p>
+        <p>Directives with parameters</p>
         <div fragment>
             <p>JavaScript:</p>
             <pre hl="javascript">

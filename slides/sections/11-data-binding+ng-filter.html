@@ -14,10 +14,13 @@
         <code>
 &lt;body ng-app&gt;
 
-    &lt;h2 ng-bind="myViewModel.heading"&gt;&lt;/h2&gt;
+    &lt;input type="text" ng-model="search"/&gt;
 
-    &lt;input type="text" ng-model="myViewModel.heading"/&gt;
+    &lt;h2 ng-bind="search"&gt;&lt;/h2&gt;
 
+    &lt;ul&gt;
+        &lt;li ng-repeat="item in items | filter: search"&gt;{{item.name}}&lt;/li&gt;
+    &lt;/ul&gt;
     &lt;button type="button" ng-click="myViewModel.heading = 'Demo'"&gt;Demo&lt;/button&gt;
 
 &lt;/body&gt;

@@ -4,13 +4,31 @@
         <p>HTML:</p>
         <pre hl="html">
             <code>
-                &lt;div ng-repeat="item in items | orderBy:predicate:reverse"&gt;&lt;div&gt;
+                &lt;form novalidate name="myForm" &gt;
+                    Name:  &lt;input type="text" ng-model="user.name" /&gt;
+                    E-mail:  &lt;input type="email" ng-model="user.email" required /&gt;
+                &lt;/form &gt;
             </code>
         </pre>
     </div>
     <ul>
-        <li fragment>orderBy: pedicate: reverse</li>
-        <li fragment>orederBy: name: false</li>
-        <li fragment>orederBy: name: myFunc()</li>
+        <li fragment>novalidate</li>
+        <li fragment>required</li>
+        <li fragment>type</li>
+    </ul>
+</slide>
+<slide>
+    <p>Validation classes</p>
+    <ul>
+        <li fragment>ng-valid</li>
+        <li fragment>ng-invalid</li>
+        <li fragment>ng-pristine</li>
+        <li fragment>ng-dirty</li>
+    </ul>
+    <br>
+    <br>
+    <p fragment>Check form</p>
+    <ul>
+        <li fragment>myForm.$invalid</li>
     </ul>
 </slide>

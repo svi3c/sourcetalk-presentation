@@ -18,7 +18,7 @@
     </div>
 </slide>
 <slide>
-    <h2>Built-in Filters</h2>
+    <h2>Built-in filters</h2>
     <div fragment>
         <pre hl="javascript">
             <code>
@@ -32,4 +32,22 @@
             </code>
         </pre>
     </div>
+</slide>
+<slide>
+    <h2>Custom filters</h2>
+    <div fragment>
+        <p>Create a filter</p>
+        <div fragment>
+            <pre hl="javascript">
+                <code>
+                    angular.module("myApp")
+                        .filter("custom", function() {
+                            return function(input) {
+                                return input[0] + "filter"
+                            };
+                        });
+                </code>
+            </pre>
+        </div>
+   </div>
 </slide>
