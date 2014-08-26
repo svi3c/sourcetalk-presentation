@@ -12,26 +12,44 @@
 
     <p fragment class="padding">Promises are created automatically in many places:</p>
     <ul fragment>
-        <li hl="javascript">$http[method]()</li>
-        <li hl="javascript">$resource("/url").query().$promise</li>
-        <li hl="javascript">$timeout()</li>
+        <li><pre><code hl="javascript">$http[method]()</code></pre></li>
+        <li><pre><code hl="javascript">$resource("/url").query().$promise</code></pre></li>
+        <li><pre><code hl="javascript">$timeout()</code></pre></li>
     </ul>
     <p fragment class="padding">Promises are handled automatically in some places:</p>
     <ul fragment>
-        <li hl="javascript">$routeProvider.when("/url", {resolve: function() {}})</li>
+        <li><pre><code hl="javascript">$routeProvider.when("/url", {resolve: function() {}});</code></pre></li>
     </ul>
-    <p fragment>The promise implementation of Angular automatically calls a $rootScope.$apply().</p>
+    <div fragment class="padding">The promise implementation of Angular automatically calls a $rootScope.$apply(), so the view gets re-rendered after the completion of a promise.</div>
+</slide>
+<slide>
+    <h2>Handling Promises in Angular</h2>
+
+    <p fragment class="padding">There are some ways to handle promises:</p>
+    <ul>
+        <li fragment>bind handlers on their completion or notification events:
+            <pre><code hl="javascript">promise.then(success, error, notify);</code></pre>
+        </li>
+        <li fragment>Chaining promises:
+            <pre><code hl="javascript">$promise.then(action1).then(action2).catch(action3);</code></pre>
+        </li>
+        <li fragment>create new higher-level promises:
+            <pre><code hl="javascript">$q.all([p1, p2, p3, ...]);</code></pre>
+        </li>
+    </ul>
 </slide>
 <slide>
     <h2>Creating Promises in Angular</h2>
 
     <p fragment>The promise API is natively implemented in Angular, so We don't need to include another module. It is provided through the Service <b><a href="https://code.angularjs.org/1.2.23/docs/api/ng/service/$q">$q</a></b>.</p>
-    <p fragment>We create a promise by creating a deferred object:</p>
-    <pre hl="javascript" fragment>
-        <code>
+    <div fragment>
+        <p>We create a promise by creating a deferred object:</p>
+        <pre>
+            <code hl="javascript">
 var dfd = $q.defer();
 
 doSomethingPotentiallyAsynchronous(function(result) {
+    dfd.notify("almost done");
     if (...) {
         dfd.resolve(result);
     } else {
@@ -40,6 +58,15 @@ doSomethingPotentiallyAsynchronous(function(result) {
 });
 
 return dfd.$promise;
+            </code>
+        </pre>
+    </div>
+</slide>
+<slide>
+    <h2>Testing the reload functionality</h2>
+    <pre>
+        <code hl="bash">
+curl -X DELETE localhost:6002/data/addresses/[id]
         </code>
     </pre>
 </slide>
