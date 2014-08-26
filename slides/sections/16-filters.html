@@ -2,8 +2,8 @@
     <h2>Filters</h2>
     <div fragment>
         <p>HTML:</p>
-        <pre hl="html">
-            <code fragment>
+        <pre>
+            <code fragment hl="html">
                 <ul>
                     <li fragment>Selects a subset of items from array and returns it as a new array</li>
                     <br>
@@ -20,8 +20,8 @@
 <slide>
     <h2>Built-in filters</h2>
     <div fragment>
-        <pre hl="javascript">
-            <code>
+        <pre>
+            <code hl="javascript">
                 <ul>
                     <li>{{ date_expression | date : format}}</li>
                     <br>
@@ -38,8 +38,8 @@
     <div fragment>
         <p>Create a filter</p>
         <div fragment>
-            <pre hl="javascript">
-                <code>
+            <pre>
+                <code hl="javascript">
                     angular.module("myApp")
                         .filter("custom", function() {
                             return function(input) {

@@ -17,8 +17,8 @@
 <slide>
     <div fragment>
         <p>Create a service</p>
-        <pre hl="javascript">
-            <code>
+        <pre>
+            <code hl="javascript">
                 angular.module('myModule', [])
                     .factory('myService', function(){
                         var service;
@@ -29,8 +29,8 @@
     </div>
     <div fragment>
         <p>Inject a service</p>
-        <pre hl="javascript">
-            <code>
+        <pre>
+            <code hl="javascript">
                 angular.module('myModule', [])
                     .controller('myCtrl', function($scope, myService){
                         $scope.status = myService.status();
