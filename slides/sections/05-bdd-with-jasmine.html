@@ -1,0 +1,28 @@
+<slide>
+    <h2>The test runner</h2>
+
+    <p fragment>In this workshop we use <b><a href="http://karma-runner.github.io/0.12/index.html">Karma</a></b> as test runner.</p>
+    <p fragment>Grunt has a <a href="https://github.com/karma-runner/grunt-karma">plugin</a> for running karma tests.</p>
+    <p fragment>The task <code hl="bash">grunt dev</code> is set-up to execute the tests everytime, a test or a source file changes.</p>
+</slide>
+
+<slide>
+    <h2>The testing framework</h2>
+
+    <p fragment>The tests are written with a BDD-framework called <b><a href="http://jasmine.github.io/2.0/introduction.html">Jasmine 2.0</a></b>.</p>
+    <p fragment>New tests for a section are prepared and skipped by default, so you can enable them to check whether your code is working as expected.</p>
+    <p fragment>The tests are written in CoffeeScript.</p>
+    <div fragment>
+        Example:
+        <pre>
+            <code hl="coffeescript">
+describe "someUnit", ->
+
+  something = {}
+
+  it "should behave a certain way", ->
+    expect(something).toBe something
+            </code>
+        </pre>
+    </div>
+</slide>
